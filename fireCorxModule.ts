@@ -15,18 +15,6 @@ import { FireCorx } from './fireCorx'
 		FireCorx
 	]
 })
-export class FireCorxModule {
-	static initializeApp(config: FirebaseAppConfig){
-		return {
-			ngModule: FireCorxModule,
-			imports: [
-				AngularFireModule.initializeApp(config)
-			],
-			providers: [
-				FireCorx
-			]
-		}
-	}	
-}
+export class FireCorxModule {}
 
 export { FireCorx }
