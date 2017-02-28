@@ -3,8 +3,6 @@ import { Injectable, NgZone } from '@angular/core'
 import * as firebase from 'firebase'
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2'
 
-declare var window
-
 
 @Injectable()
 export class FireCorx {
