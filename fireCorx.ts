@@ -13,6 +13,9 @@ export class FireCorx {
 	auth: any = this.af.auth
 	rdb: any = this.af.database
 
+	root$: any = this.rdb.object('/')
+	rootRef: any = this.root$.$ref
+
 	private _auth$: any = null
 	isAuth: boolean = false
 
