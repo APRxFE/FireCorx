@@ -24,6 +24,10 @@ export class FireCorx {
 	private _authUid: string = null
 	get authUid(){ return this._authUid }
 
+	private _appStart = new Rx.Subject()
+
+	appStartRx: any = this._appStart.first() // Auth 확인 후 처리를 위한..
+
 	constructor(
 		public af: AngularFire,
 		private _zone: NgZone
@@ -31,7 +35,10 @@ export class FireCorx {
 
 		// Auth
 		this._auth$ = this.auth
-			.do(_=>_ === null && (this._isAuth = false))
+			.do(_=> {
+				_ === null && (this._isAuth = false)
+				_ !== null && this._appStart.next(true)
+			})
 			.filter(_=>!!_).subscribe(auth => {
 				auth.uid && this._zone.run(() => {
 					this._authUid = auth.uid
