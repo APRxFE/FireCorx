@@ -1,5 +1,4 @@
 import * as Rx from 'rxjs'
-
 import { Injectable, NgZone } from '@angular/core'
 
 import * as firebase from 'firebase'
@@ -28,7 +27,7 @@ export class FireCorx {
 	constructor(
 		public af: AngularFire,
 		private _zone: NgZone
-	){
+	) {
 
 		// Auth
 		this._auth$ = this.auth
@@ -42,7 +41,7 @@ export class FireCorx {
 
 	}
 
-	login(type: string){
+	login(type: string) {
 		this.loginRn(type).subscribe(ok => {})
 	}
 
@@ -57,7 +56,7 @@ export class FireCorx {
 		)
 	}
 
-	logout(){
+	logout() {
 		this.logoutRn().subscribe(ok => {})
 	}
 
